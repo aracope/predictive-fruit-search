@@ -1,9 +1,11 @@
 * {
-  /* box-sizing: border-box; */
+  box-sizing: border-box;
 }
 
-:focus {
+input:focus {
  /* TODO */
+ outline: 2px solid #FF3CAC;
+ border-radius: 30px;
 }
 
 body {
@@ -30,11 +32,12 @@ body {
 
 input {
  /* TODO */
- flex: 1;
+ font-size: 16px;
+ box-shadow: inset 0 3px 4px #8d2bc5;
  border: none;
- outline: none;
  background: transparent;
  padding: 10px;
+ border-radius: 30px;
 }
 
 .search-container {
@@ -70,6 +73,8 @@ ul li {
 }
 ul li:hover {
   /* TODO */
+  transform: scale(1.05);
+  transition: 0.2s ease-in-out;
 }
 
 input {
