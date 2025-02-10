@@ -16,7 +16,20 @@ function search(str) {
 }
 
 function searchHandler(e) {
-	// TODO
+  const searchInput = e.target.value;
+  const searchResults = search(searchInput);
+
+  if (searchResults.length === 0) {
+    suggestions.innerText = 'No results found';
+    return;
+  } // For if no matches are found
+  
+  if(searchInput === '') {
+    suggestions.innerText = '';
+    return;
+  } //removes dropdown when input field is cleared
+  // showSuggestions(searchResults);
+  console.log(searchResults);
 }
 
 function showSuggestions(results, inputVal) {
