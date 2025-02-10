@@ -43,7 +43,8 @@ results.forEach(result => {
 }
 
 function useSuggestion(e) {
-	// TODO
+	input.value = e.target.textContent; // Replace input field with selection
+  suggestions.innerText = ''; // Clears suggestions once a result is selected
 }
 
 input.addEventListener('keyup', searchHandler);
