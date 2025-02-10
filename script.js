@@ -28,13 +28,18 @@ function searchHandler(e) {
     suggestions.innerText = '';
     return;
   } //removes dropdown when input field is cleared
-  // showSuggestions(searchResults);
-  console.log(searchResults);
+  showSuggestions(searchResults);
+  // console.log(searchResults);
 }
 
 function showSuggestions(results, inputVal) {
-
-	// TODO
+suggestions.innerText = ''; // clear previous suggestions
+suggestions.classList.add('has-suggestions'); // add class list to search/list item(s)
+results.forEach(result => {
+  const li = document.createElement('li');  // create li element for resulting fruit
+  li.textContent = result; // places fruit result into created li
+  suggestions.appendChild(li); // appends result to suggestions ul
+});
 }
 
 function useSuggestion(e) {
