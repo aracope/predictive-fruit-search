@@ -21,6 +21,7 @@ function searchHandler(e) {
 
   if (searchResults.length === 0) {
     suggestions.innerText = 'No results found';
+    suggestions.parentElement.style.display = 'block';
     return;
   } // For if no matches are found
   
@@ -34,6 +35,7 @@ function searchHandler(e) {
 
 function showSuggestions(results, inputVal) {
 suggestions.innerText = ''; // clear previous suggestions
+suggestions.parentElement.style.display = 'block';
 suggestions.classList.add('has-suggestions'); // add class list to search/list item(s)
 results.forEach(result => {
   const li = document.createElement('li');  // create li element for resulting fruit
