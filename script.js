@@ -8,11 +8,10 @@ input.addEventListener('keyup', searchHandler); // creates the event listener th
 function search(str) {
   let results = []; // Creates empty string for results
   const lowercaseInput = str.toLowerCase(); // changes the input to all lowercase
-  const fruitResults = fruit.filter(function(val){
-	return val.toLowerCase().includes(lowercaseInput);
+  const fruitResults = fruit.filter(function (val) {
+    return val.toLowerCase().includes(lowercaseInput);
   });
-  results = fruitResults;
-  return results;
+  return fruitResults;
 }
 
 function searchHandler(e) {
@@ -24,8 +23,8 @@ function searchHandler(e) {
     suggestions.parentElement.style.display = 'block';
     return;
   } // For if no matches are found
-  
-  if(searchInput === '') {
+
+  if (searchInput === '') {
     suggestions.innerText = '';
     return;
   } //removes dropdown when input field is cleared
@@ -34,18 +33,18 @@ function searchHandler(e) {
 }
 
 function showSuggestions(results, inputVal) {
-suggestions.innerText = ''; // clear previous suggestions
-suggestions.parentElement.style.display = 'block';
-suggestions.classList.add('has-suggestions'); // add class list to search/list item(s)
-results.forEach(result => {
-  const li = document.createElement('li');  // create li element for resulting fruit
-  li.textContent = result; // places fruit result into created li
-  suggestions.appendChild(li); // appends result to suggestions ul
-});
+  suggestions.innerText = ''; // clear previous suggestions
+  suggestions.parentElement.style.display = 'block';
+  suggestions.classList.add('has-suggestions'); // add class list to search/list item(s)
+  results.forEach(result => {
+    const li = document.createElement('li');  // create li element for resulting fruit
+    li.textContent = result; // places fruit result into created li
+    suggestions.appendChild(li); // appends result to suggestions ul
+  });
 }
 
 function useSuggestion(e) {
-	input.value = e.target.textContent; // Replace input field with selection
+  input.value = e.target.textContent; // Replace input field with selection
   suggestions.innerText = ''; // Clears suggestions once a result is selected
 }
 
