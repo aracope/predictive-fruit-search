@@ -29,7 +29,6 @@ function searchHandler(e) {
     return;
   } //removes dropdown when input field is cleared
   showSuggestions(searchResults);
-  // console.log(searchResults);
 }
 
 function showSuggestions(results, inputVal) {
