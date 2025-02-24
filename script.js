@@ -21,15 +21,16 @@ function searchHandler(e) {
   if (searchResults.length === 0) {
     suggestions.innerText = 'No results found';
     suggestions.parentElement.style.display = 'block';
+
     return;
   } // For if no matches are found
 
   if (searchInput === '') {
     suggestions.innerText = '';
+    suggestions.parentElement.style.display = 'none'; // Hide suggestions when input is cleared
     return;
   } //removes dropdown when input field is cleared
   showSuggestions(searchResults);
-  // console.log(searchResults);
 }
 
 function showSuggestions(results, inputVal) {
@@ -46,7 +47,14 @@ function showSuggestions(results, inputVal) {
 function useSuggestion(e) {
   input.value = e.target.textContent; // Replace input field with selection
   suggestions.innerText = ''; // Clears suggestions once a result is selected
+  suggestions.parentElement.style.display = 'none'; // Hide the dropdown
 }
 
-input.addEventListener('keyup', searchHandler);
+// Hides suggestions if user clicks outside of dropdown
+document.addEventListener('click', (e) => {
+  if (!input.contains(e.target) && !suggestions.contains(e.target)) {
+    suggestions.parentElement.style.display = 'none';
+  }
+});
+
 suggestions.addEventListener('click', useSuggestion);
